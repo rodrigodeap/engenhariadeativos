@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rodrigo de Assis · Engenharia de Ativos</title>
+  
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background-color: #0b0e12; color: #e5e9f0; }
+    
+    /* === NAVEGAÇÃO === */
+    .glass-nav {
+      background: rgba(11, 14, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(52, 152, 219, 0.12);
+    }
+    
+    .logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(145deg, #1a3a5a, #0f2a4a);
+      border: 1px solid #2a6b8f;
+      color: #ffffff;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 100, 200, 0.15);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(145deg, #2a6b8f, #1a4a6b);
+      border-color: #4aa8d4;
+      box-shadow: 0 0 40px rgba(0, 150, 220, 0.3);
+      transform: scale(1.02);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid rgba(74, 168, 212, 0.3);
+      color: #4aa8d4;
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(74, 168, 212, 0.08);
+      border-color: #4aa8d4;
+      box-shadow: 0 0 30px rgba(0, 150, 220, 0.1);
+      transform: scale(1.02);
+    }
+    
+    .btn-whatsapp {
+      background: linear-gradient(145deg, #1a3a4a, #0f2a3a);
+      border: 1px solid #2a7a8f;
+      transition: all 0.3s ease;
+    }
+    .btn-whatsapp:hover {
+      background: linear-gradient(145deg, #2a6a7a, #1a4a5a);
+      border-color: #4aaac4;
+      box-shadow: 0 0 40px rgba(0, 200, 240, 0.3);
+      transform: scale(1.02);
+    }
+    
+    /* === CARDS DE SERVIÇOS === */
+    .service-card {
+      background: rgba(18, 24, 28, 0.7);
+      border: 1px solid rgba(52, 152, 219, 0.08);
+      border-radius: 24px;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(42, 107, 143, 0.15), transparent, rgba(74, 168, 212, 0.08));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .service-card:hover::before {
+      opacity: 1;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: #2a7a9f;
+      box-shadow: 0 20px 40px -12px rgba(0, 150, 220, 0.2);
+    }
+    
+    .service-card .icon-wrapper {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(59, 130, 246, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover .icon-wrapper {
+      background: rgba(59, 130, 246, 0.15);
+      box-shadow: 0 0 30px rgba(0, 150, 220, 0.05);
+    }
+    .service-card .icon-wrapper i {
+      font-size: 1.5rem;
+      color: #4aa8d4;
+    }
+    
+    /* === HERO === */
+    .hero-texture {
+      background-image: radial-gradient(circle at 30% 40%, rgba(0, 150, 220, 0.04) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 150, 220, 0.02) 0%, transparent 50%);
+    }
+    
+    .hero-badge {
+      background: rgba(74, 168, 212, 0.08);
+      border: 1px solid rgba(74, 168, 212, 0.12);
+      border-radius: 50px;
+      padding: 4px 16px;
+      font-size: 0.65rem;
+      color: #4aa8d4;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    
+    /* === TRACK RECORD === */
+    .track-record {
+      background: linear-gradient(145deg, rgba(18, 24, 28, 0.8), rgba(11, 14, 18, 0.9));
+      border: 1px solid rgba(52, 152, 219, 0.08);
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .track-record::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.05), transparent 70%);
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+    .track-record .number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #4aa8d4, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* === SCROLL === */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0b0e12; }
+    ::-webkit-scrollbar-thumb { background: #2a6b8f; border-radius: 8px; }
+    
+    /* === RESPONSIVIDADE === */
+    @media (max-width: 640px) {
+      .track-record .number { font-size: 2.5rem; }
+      .logo-img { height: 32px; }
+    }
+    
+    /* === SECTION DIVIDER === */
+    .section-divider {
+      background: linear-gradient(90deg, transparent, #2a6b8f, #4aa8d4, #2a6b8f, transparent);
+      height: 1px;
+      width: 80%;
+      margin: 0 auto;
+    }
+    
+    /* === ANIMAÇÕES DE ENTRADA === */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-up-delay-1 { transition-delay: 0.1s; }
+    .fade-in-up-delay-2 { transition-delay: 0.2s; }
+    .fade-in-up-delay-3 { transition-delay: 0.3s; }
+    .fade-in-up-delay-4 { transition-delay: 0.4s; }
+    .fade-in-up-delay-5 { transition-delay: 0.5s; }
+    
+    /* === AVATAR === */
+    .avatar-small {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(74, 168, 212, 0.3);
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== MENU FIXO ===== -->
+  <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <!-- LOGO - Substitua "logo-rodrigo.png" pelo nome da sua imagem -->
+      <img 
+        src="logo-rodrigo.png" 
+        alt="Rodrigo de Assis - Engenharia de Ativos" 
+        class="logo-img"
+        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%2240%22 viewBox=%220 0 120 40%22%3E%3Ctext x=%225%22 y=%2228%22 font-family=%22Inter, sans-serif%22 font-weight=%22800%22 font-size=%2220%22 fill=%22%234aa8d4%22%3ERodrigo%3C/text%3E%3Ctext x=%2280%22 y=%2228%22 font-family=%22Inter, sans-serif%22 font-weight=%22300%22 font-size=%2216%22 fill=%22%238a9aa8%22%3Ede Assis%3C/text%3E%3C/svg%3E'"
+      >
+      <span class="text-xs text-gray-500 hidden sm:inline">| Engenharia de Ativos</span>
+    </div>
+    <div>
+      <a href="#contato" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold shadow-xl">Solicitar Diagnóstico</a>
+    </div>
+  </nav>
+
+  <!-- ===== 1. HERO SECTION ===== -->
+  <section id="hero" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center relative z-10">
+      <div class="lg:col-span-3 space-y-6">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="hero-badge">+ R$ 1.2B em ativos recuperados</span>
+          <span class="hero-badge">Engenharia de Ativos</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.12] tracking-tight fade-in-up visible">
+          <span class="text-white">Transformo seu passivo federal em </span><br>
+          <span class="text-blue-400">alavancagem de caixa.</span>
+        </h1>
+        <p class="text-base md:text-xl text-gray-400 max-w-2xl font-light leading-relaxed fade-in-up visible">
+          Estruturação de ativos, transações na PGFN e proteção patrimonial — eu, Rodrigo de Assis, conduzo pessoalmente cada estratégia para entregar eficiência e segurança jurídica à sua empresa.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl inline-flex items-center gap-2">
+            <span>Solicitar Diagnóstico Estratégico</span>
+            <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+          <span class="text-gray-500 text-sm hidden sm:inline">● Análise confidencial</span>
+        </div>
+        <div class="flex items-center gap-6 text-xs text-gray-500 pt-2">
+          <span><i class="fas fa-check-circle text-blue-400 mr-1.5"></i> Diagnóstico gratuito</span>
+          <span><i class="fas fa-check-circle text-blue-400 mr-1.5"></i> Estratégia sob medida</span>
+          <span><i class="fas fa-check-circle text-blue-400 mr-1.5"></i> Resultados mensuráveis</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 flex justify-center lg:justify-end">
+        <div class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-700/10 flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-blue-900/5">
+          <div class="text-center">
+            <i class="fas fa-user-tie text-blue-400/20 text-7xl"></i>
+            <p class="text-blue-400/30 text-sm mt-2 font-light">Rodrigo de Assis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 2. SEÇÃO DE PROBLEMA & RISCO ===== -->
+  <section id="problema" class="py-24 px-6 md:px-12 bg-[#0c1015]">
+    <div class="max-w-5xl mx-auto text-center">
+      <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">O problema</span>
+      <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">O verdadeiro custo da ineficiência financeira.</h2>
+      <div class="max-w-3xl mx-auto mt-6">
+        <p class="text-lg md:text-xl text-gray-400 leading-relaxed">
+          Passivos federais e execuções fiscais não apenas travam o fluxo de caixa, mas expõem o patrimônio pessoal dos sócios a riscos irreversíveis. A contabilidade tradicional aponta o problema, <span class="text-white font-medium">eu executo a solução definitiva.</span>
+        </p>
+        <p class="text-base text-gray-500 mt-4 italic">
+          "Em 20 anos, vi de perto o que a ineficiência fiscal custa. E também vi como é possível reverter esse jogo."
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        <div class="bg-blue-900/5 border border-blue-800/10 rounded-2xl p-6 text-center">
+          <i class="fas fa-exclamation-triangle text-3xl text-blue-400/40 mb-3"></i>
+          <p class="text-sm text-gray-400">Passivos federais que corroem margem</p>
+        </div>
+        <div class="bg-blue-900/5 border border-blue-800/10 rounded-2xl p-6 text-center">
+          <i class="fas fa-shield-alt text-3xl text-blue-400/40 mb-3"></i>
+          <p class="text-sm text-gray-400">Exposição patrimonial de sócios</p>
+        </div>
+        <div class="bg-blue-900/5 border border-blue-800/10 rounded-2xl p-6 text-center">
+          <i class="fas fa-clock text-3xl text-blue-400/40 mb-3"></i>
+          <p class="text-sm text-gray-400">Ineficiência que trava o caixa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 3. NOSSAS SOLUÇÕES (3 CARDS) ===== -->
+  <section id="solucoes" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Como atuo</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Engenharia de ativos aplicada</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Metodologias que desenvolvi ao longo de 20 anos de estrada</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        
+        <!-- Card 1 -->
+        <div class="service-card p-8 flex flex-col h-full">
+          <div class="icon-wrapper mb-5">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Transação Tributária (PGFN)</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">Redução agressiva de juros e multas e estancamento de passivos federais com segurança jurídica. Eu negocio diretamente com a PGFN.</p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Até 70% de redução em juros</span>
+          </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="service-card p-8 flex flex-col h-full">
+          <div class="icon-wrapper mb-5">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Engenharia de Ativos</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">Utilização de Direitos Creditórios Federais para quitação de tributos com deságio e ganho de margem. Eu estruturo cada operação.</p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Deságio de até 40%</span>
+          </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="service-card p-8 flex flex-col h-full">
+          <div class="icon-wrapper mb-5">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Blindagem Patrimonial</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">Estruturação societária de alto nível para proteção de caixa, bens e diretoria. Eu desenho a arquitetura de proteção.</p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Proteção integral do patrimônio</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 4. AUTORIDADE (TRACK RECORD) ===== -->
+  <section id="autoridade" class="py-24 px-6 md:px-12 bg-[#0c1015]">
+    <div class="max-w-4xl mx-auto">
+      <div class="track-record p-10 md:p-16 text-center relative">
+        <div class="relative z-10">
+          <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase">Minha trajetória</span>
+          <div class="number mt-2">+ R$ 1.2 Bilhão</div>
+          <p class="text-gray-400 text-base mt-2">em ativos estruturados e recuperados ao longo da minha trajetória profissional</p>
+          <div class="flex flex-wrap justify-center gap-6 mt-6 text-xs text-gray-500">
+            <span><i class="fas fa-check-circle text-blue-400 mr-1.5"></i> 20 anos de experiência</span>
+            <span><i class="fas fa-check-circle text-blue-400 mr-1.5"></i> +200 empresas atendidas</span>
+            <span><i class="fas fa-check-circle text-blue-400 mr-1.5"></i> 98% de satisfação</span>
+          </div>
+          <p class="text-sm text-gray-500 mt-6 max-w-2xl mx-auto italic">
+            "Cada número representa uma empresa que recuperou sua capacidade de crescer. E cada uma delas confiou em mim para conduzir essa transformação."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 5. RODAPÉ & CONVERSÃO FINAL ===== -->
+  <section id="contato" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Última etapa</span>
+      <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Pare de perder margem de lucro para a ineficiência fiscal.</h2>
+      <p class="text-gray-400 mt-4 text-base max-w-2xl mx-auto">Agende uma conversa estratégica comigo, Rodrigo de Assis, e descubra como transformar seus passivos em alavancagem.</p>
+      
+      <div class="mt-10 flex flex-col items-center gap-4">
+        <a href="#" class="btn-whatsapp px-10 py-5 rounded-xl text-white font-bold text-lg inline-flex items-center gap-3 shadow-2xl shadow-blue-900/20 transition-all duration-300 hover:scale-105">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span>Falar com Rodrigo de Assis</span>
+        </a>
+        <span class="text-xs text-gray-500"><i class="fas fa-lock text-blue-400/40 mr-1"></i> Diagnóstico confidencial · Resposta em até 4 horas</span>
+      </div>
+      
+      <div class="mt-8 pt-8 border-t border-blue-900/10 text-xs text-gray-500">
+        <p>Rodrigo de Assis · Engenharia de Ativos e Inteligência Tributária</p>
+        <p class="mt-1">CNPJ: 63.189.436/0001-90</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-[#080b0e] border-t border-blue-900/20 py-6 text-center text-gray-500 text-xs">
+    <p>© 2026 Rodrigo de Assis · Todos os direitos reservados</p>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Smooth Scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // WhatsApp
+    document.querySelector('.btn-whatsapp')?.addEventListener('click', function(e) {
+      e.preventDefault();
+      const phoneNumber = '5521990650767';
+      const message = 'Olá, Rodrigo! Gostaria de agendar uma conversa sobre Engenharia de Ativos.';
+      const url = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+      window.open(url, '_blank');
+    });
+
+    // FADE-IN-UP com Intersection Observer
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in-up').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+</html>
