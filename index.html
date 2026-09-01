@@ -126,6 +126,26 @@
       color: #4aa8d4;
     }
     
+    .btn-material {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      background: rgba(59, 130, 246, 0.05);
+      color: #4aa8d4;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .btn-material:hover {
+      border-color: #4aa8d4;
+      background: rgba(59, 130, 246, 0.12);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px -8px rgba(59, 130, 246, 0.15);
+    }
+    
     /* === HERO === */
     .hero-texture {
       background-image: radial-gradient(circle at 30% 40%, rgba(0, 150, 220, 0.04) 0%, transparent 60%),
@@ -241,6 +261,7 @@
       .track-record .number { font-size: 2.5rem; }
       .logo-img { height: 32px; }
       .hero-image { max-width: 280px; }
+      .btn-material { font-size: 0.8rem; padding: 8px 12px; }
     }
     
     /* === SECTION DIVIDER === */
@@ -317,7 +338,6 @@
       </div>
 
       <div class="lg:col-span-2 flex justify-center lg:justify-end">
-        <!-- IMAGEM HERO (foto principal) -->
         <img 
           src="hero-foto.jpg" 
           alt="Rodrigo de Assis - Engenharia de Ativos" 
@@ -336,7 +356,6 @@
       <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">O problema</span>
       <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">O verdadeiro custo da ineficiência financeira.</h2>
       
-      <!-- IMAGEM BACKGROUND (textura) -->
       <div class="flex justify-center my-8">
         <img 
           src="hero-background.jpg" 
@@ -373,7 +392,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 3. NOSSAS SOLUÇÕES (3 CARDS) ===== -->
+  <!-- ===== 3. ENGENHARIA DE ATIVOS APLICADA (7 CARDS) ===== -->
   <section id="solucoes" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
@@ -382,9 +401,9 @@
         <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Metodologias que desenvolvi ao longo de 20 anos de estrada</p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
         
-        <!-- Card 1 -->
+        <!-- ===== CARD 1: Transação Tributária (PGFN) ===== -->
         <div class="service-card p-8 flex flex-col h-full">
           <div class="icon-wrapper mb-5">
             <i class="fas fa-handshake"></i>
@@ -392,11 +411,18 @@
           <h3 class="text-xl font-bold text-white mb-3">Transação Tributária (PGFN)</h3>
           <p class="text-gray-400 text-sm leading-relaxed flex-grow">Redução agressiva de juros e multas e estancamento de passivos federais com segurança jurídica. Eu negocio diretamente com a PGFN.</p>
           <div class="mt-4 pt-4 border-t border-blue-900/20">
-            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Até 70% de redução em juros</span>
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Até 70% de redução na dívida</span>
+          </div>
+          <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1qCaTsbwfqeCUgCMzhqNuZFpLa-pZUKJw/view" 
+               target="_blank" 
+               class="btn-material">
+              Acessar Material
+            </a>
           </div>
         </div>
         
-        <!-- Card 2 -->
+        <!-- ===== CARD 2: Engenharia de Ativos ===== -->
         <div class="service-card p-8 flex flex-col h-full">
           <div class="icon-wrapper mb-5">
             <i class="fas fa-chart-pie"></i>
@@ -406,9 +432,16 @@
           <div class="mt-4 pt-4 border-t border-blue-900/20">
             <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Deságio de até 40%</span>
           </div>
+          <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1vrshgwulXk1mziUOmYPYjzGghPtbo9yi/view" 
+               target="_blank" 
+               class="btn-material">
+              Acessar Material
+            </a>
+          </div>
         </div>
         
-        <!-- Card 3 -->
+        <!-- ===== CARD 3: Blindagem Patrimonial ===== -->
         <div class="service-card p-8 flex flex-col h-full">
           <div class="icon-wrapper mb-5">
             <i class="fas fa-shield-alt"></i>
@@ -417,6 +450,89 @@
           <p class="text-gray-400 text-sm leading-relaxed flex-grow">Estruturação societária de alto nível para proteção de caixa, bens e diretoria. Eu desenho a arquitetura de proteção.</p>
           <div class="mt-4 pt-4 border-t border-blue-900/20">
             <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Proteção integral do patrimônio</span>
+          </div>
+          <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1gCl5qIuD-zdRzlyWr3mqZWwhnqffuuMy/view" 
+               target="_blank" 
+               class="btn-material">
+              Acessar Material
+            </a>
+          </div>
+        </div>
+        
+        <!-- ===== CARD 4: Sistemática de Importação ===== -->
+        <div class="service-card p-8 flex flex-col h-full">
+          <div class="icon-wrapper mb-5">
+            <i class="fas fa-ship"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Sistemática de Importação</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">Soluções para desembaraço em qualquer porto, aeroporto e fronteira em território nacional. Reduzindo seu custo operacional e gerando mais lucro no caixa.</p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Redução de até 65% de ICMS</span>
+          </div>
+          <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1kPIbfwHM8lpwYL-Ln9bI0FwyTB3RJW99/view" 
+               target="_blank" 
+               class="btn-material">
+              Acessar Material
+            </a>
+          </div>
+        </div>
+        
+        <!-- ===== CARD 5: Escrow Account ===== -->
+        <div class="service-card p-8 flex flex-col h-full">
+          <div class="icon-wrapper mb-5">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Escrow Account</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">Conta protegida com liberação condicional de valores com toda a estrutura para rodar sua operação financeira, e outros fins.</p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Proteção total do seu capital</span>
+          </div>
+          <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1xNnjoEfq5Y6ZjPvjOfxG5ba6CQMX_rrb/view" 
+               target="_blank" 
+               class="btn-material">
+              Acessar Material
+            </a>
+          </div>
+        </div>
+        
+        <!-- ===== CARD 6: Gestão Fiscal ===== -->
+        <div class="service-card p-8 flex flex-col h-full">
+          <div class="icon-wrapper mb-5">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Gestão Fiscal</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">Operação 360º na sua empresa com estrutura Tributária, Contábil, Administrativa, Marketing e Vendas. No intuito de gerar mais vendas, proteger seu capital e aquisição de créditos.</p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Escala de vendas e aplicação de crédito direto no caixa</span>
+          </div>
+          <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1SHwuNu296K9HrYMMPVDZvAA1Rfl8g6eI/view" 
+               target="_blank" 
+               class="btn-material">
+              Acessar Material
+            </a>
+          </div>
+        </div>
+        
+        <!-- ===== CARD 7: Reforma Tributária ===== -->
+        <div class="service-card p-8 flex flex-col h-full lg:col-start-2">
+          <div class="icon-wrapper mb-5">
+            <i class="fas fa-gavel"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Reforma Tributária</h3>
+          <p class="text-gray-400 text-sm leading-relaxed flex-grow">Auditoria, assessoria e presença operacional para atuação estratégica da sua empresa, principalmente no melhor regime tributário e controle 100% na gestão de tributos e restituições pagas a maior.</p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Pagar menos imposto é estar enquadrado corretamente no seu regime tributário</span>
+          </div>
+          <div class="mt-4">
+            <a href="https://drive.google.com/file/d/1FxAf5uIxVBZnj7ZlTbqpXtn2c5ez6u_o/view" 
+               target="_blank" 
+               class="btn-material">
+              Acessar Material
+            </a>
           </div>
         </div>
         
@@ -433,7 +549,6 @@
         <div class="relative z-10">
           <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase">Minha trajetória</span>
           
-          <!-- IMAGEM TRACK RECORD (gráfico) -->
           <div class="flex justify-center my-6">
             <img 
               src="track-grafico.jpg" 
@@ -467,7 +582,6 @@
       <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Pare de perder margem de lucro para a ineficiência fiscal.</h2>
       <p class="text-gray-400 mt-4 text-base max-w-2xl mx-auto">Agende uma conversa estratégica comigo, Rodrigo de Assis, e descubra como transformar seus passivos em alavancagem.</p>
       
-      <!-- IMAGEM AUTORIDADE (foto perfil) -->
       <div class="flex justify-center my-6">
         <img 
           src="autoridade-foto.jpg" 
@@ -486,7 +600,6 @@
       </div>
       
       <div class="mt-8 pt-8 border-t border-blue-900/10 flex flex-col items-center gap-2 text-xs text-gray-500">
-        <!-- IMAGEM RODAPÉ (selo/assinatura) -->
         <img 
           src="footer-selo.png" 
           alt="Selo de confiança" 
