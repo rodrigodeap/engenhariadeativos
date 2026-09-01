@@ -174,6 +174,63 @@
       z-index: 1;
     }
     
+    /* === IMAGENS RESPONSIVAS === */
+    .hero-image {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid rgba(74, 168, 212, 0.2);
+      object-fit: cover;
+      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.6);
+      transition: all 0.5s ease;
+    }
+    .hero-image:hover {
+      transform: scale(1.03);
+      border-color: rgba(74, 168, 212, 0.4);
+      box-shadow: 0 30px 80px -15px rgba(59, 130, 246, 0.15);
+    }
+    
+    .section-image {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(52, 152, 219, 0.08);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+      transition: all 0.5s ease;
+    }
+    .section-image:hover {
+      transform: scale(1.01);
+      border-color: rgba(74, 168, 212, 0.2);
+      box-shadow: 0 20px 50px -10px rgba(59, 130, 246, 0.05);
+    }
+    
+    .track-image {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(52, 152, 219, 0.06);
+      opacity: 0.7;
+      transition: all 0.5s ease;
+    }
+    .track-image:hover {
+      opacity: 1;
+      transform: scale(1.02);
+    }
+    
+    .footer-image {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+    .footer-image:hover {
+      opacity: 1;
+    }
+    
     /* === SCROLL === */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0b0e12; }
@@ -183,6 +240,7 @@
     @media (max-width: 640px) {
       .track-record .number { font-size: 2.5rem; }
       .logo-img { height: 32px; }
+      .hero-image { max-width: 280px; }
     }
     
     /* === SECTION DIVIDER === */
@@ -208,15 +266,6 @@
     .fade-in-up-delay-3 { transition-delay: 0.3s; }
     .fade-in-up-delay-4 { transition-delay: 0.4s; }
     .fade-in-up-delay-5 { transition-delay: 0.5s; }
-    
-    /* === AVATAR === */
-    .avatar-small {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 2px solid rgba(74, 168, 212, 0.3);
-      object-fit: cover;
-    }
   </style>
 </head>
 <body>
@@ -224,7 +273,7 @@
   <!-- ===== MENU FIXO ===== -->
   <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <!-- LOGO - Substitua "logo-rodrigo.png" pelo nome da sua imagem -->
+      <!-- LOGO -->
       <img 
         src="logo-rodrigo.png" 
         alt="Rodrigo de Assis - Engenharia de Ativos" 
@@ -268,12 +317,13 @@
       </div>
 
       <div class="lg:col-span-2 flex justify-center lg:justify-end">
-        <div class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-700/10 flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-blue-900/5">
-          <div class="text-center">
-            <i class="fas fa-user-tie text-blue-400/20 text-7xl"></i>
-            <p class="text-blue-400/30 text-sm mt-2 font-light">Rodrigo de Assis</p>
-          </div>
-        </div>
+        <!-- IMAGEM HERO (foto principal) -->
+        <img 
+          src="hero-foto.jpg" 
+          alt="Rodrigo de Assis - Engenharia de Ativos" 
+          class="hero-image"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23111820%22/%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22150%22 fill=%22%231a2a3a%22 stroke=%22%232a6b8f%22 stroke-width=%222%22/%3E%3Ctext x=%22200%22 y=%22190%22 text-anchor=%22middle%22 fill=%22%234aa8d4%22 font-size=%2232%22 font-family=%22Inter, sans-serif%22 font-weight=%22700%22%3ERodrigo%3C/text%3E%3Ctext x=%22200%22 y=%22230%22 text-anchor=%22middle%22 fill=%22%236b8a9f%22 font-size=%2220%22 font-family=%22Inter, sans-serif%22%3Ede Assis%3C/text%3E%3C/svg%3E'"
+        >
       </div>
     </div>
   </section>
@@ -285,6 +335,17 @@
     <div class="max-w-5xl mx-auto text-center">
       <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">O problema</span>
       <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">O verdadeiro custo da ineficiência financeira.</h2>
+      
+      <!-- IMAGEM BACKGROUND (textura) -->
+      <div class="flex justify-center my-8">
+        <img 
+          src="hero-background.jpg" 
+          alt="Background estratégico" 
+          class="section-image"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      
       <div class="max-w-3xl mx-auto mt-6">
         <p class="text-lg md:text-xl text-gray-400 leading-relaxed">
           Passivos federais e execuções fiscais não apenas travam o fluxo de caixa, mas expõem o patrimônio pessoal dos sócios a riscos irreversíveis. A contabilidade tradicional aponta o problema, <span class="text-white font-medium">eu executo a solução definitiva.</span>
@@ -371,6 +432,17 @@
       <div class="track-record p-10 md:p-16 text-center relative">
         <div class="relative z-10">
           <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase">Minha trajetória</span>
+          
+          <!-- IMAGEM TRACK RECORD (gráfico) -->
+          <div class="flex justify-center my-6">
+            <img 
+              src="track-grafico.jpg" 
+              alt="Gráfico de crescimento" 
+              class="track-image"
+              onerror="this.style.display='none'"
+            >
+          </div>
+          
           <div class="number mt-2">+ R$ 1.2 Bilhão</div>
           <p class="text-gray-400 text-base mt-2">em ativos estruturados e recuperados ao longo da minha trajetória profissional</p>
           <div class="flex flex-wrap justify-center gap-6 mt-6 text-xs text-gray-500">
@@ -395,7 +467,17 @@
       <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Pare de perder margem de lucro para a ineficiência fiscal.</h2>
       <p class="text-gray-400 mt-4 text-base max-w-2xl mx-auto">Agende uma conversa estratégica comigo, Rodrigo de Assis, e descubra como transformar seus passivos em alavancagem.</p>
       
-      <div class="mt-10 flex flex-col items-center gap-4">
+      <!-- IMAGEM AUTORIDADE (foto perfil) -->
+      <div class="flex justify-center my-6">
+        <img 
+          src="autoridade-foto.jpg" 
+          alt="Rodrigo de Assis" 
+          class="w-24 h-24 rounded-full border-2 border-blue-400/30 object-cover"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      
+      <div class="mt-6 flex flex-col items-center gap-4">
         <a href="#" class="btn-whatsapp px-10 py-5 rounded-xl text-white font-bold text-lg inline-flex items-center gap-3 shadow-2xl shadow-blue-900/20 transition-all duration-300 hover:scale-105">
           <i class="fab fa-whatsapp text-2xl"></i>
           <span>Falar com Rodrigo de Assis</span>
@@ -403,7 +485,14 @@
         <span class="text-xs text-gray-500"><i class="fas fa-lock text-blue-400/40 mr-1"></i> Diagnóstico confidencial · Resposta em até 4 horas</span>
       </div>
       
-      <div class="mt-8 pt-8 border-t border-blue-900/10 text-xs text-gray-500">
+      <div class="mt-8 pt-8 border-t border-blue-900/10 flex flex-col items-center gap-2 text-xs text-gray-500">
+        <!-- IMAGEM RODAPÉ (selo/assinatura) -->
+        <img 
+          src="footer-selo.png" 
+          alt="Selo de confiança" 
+          class="footer-image"
+          onerror="this.style.display='none'"
+        >
         <p>Rodrigo de Assis · Engenharia de Ativos e Inteligência Tributária</p>
         <p class="mt-1">CNPJ: 63.189.436/0001-90</p>
       </div>
